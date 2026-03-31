@@ -4,12 +4,15 @@
   <title>Doubt Solver AI</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="light">
 
 <div class="container">
   <h1>🤖 Doubt Solver AI</h1>
 
-  <button onclick="toggleTheme()" class="theme-btn">🌙 Toggle Theme</button>
+  <button onclick="toggleTheme()">🌙 Toggle Theme</button>
+
+  <br><br>
 
   <input type="text" id="question" placeholder="Ask your doubt...">
   <button onclick="solveDoubt()">Ask</button>
@@ -20,6 +23,7 @@
   <ul id="historyList"></ul>
 </div>
 
+<!-- IMPORTANT: script at bottom -->
 <script src="script.js"></script>
 
 </body>
