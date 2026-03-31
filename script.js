@@ -1,22 +1,29 @@
 function getAnswer(q) {
   try {
-    // Convert to lowercase
+    // Lowercase
     q = q.toLowerCase();
 
-    // Remove words and symbols
+    // Extract valid math expression
     let cleaned = q.replace(/[^0-9+\-*/().]/g, "");
 
-    // If nothing valid
+    // Remove trailing operators (IMPORTANT FIX)
+    cleaned = cleaned.replace(/[+\-*/.]+$/, "");
+
     if (!cleaned) {
-      return "Please ask a valid math question!";
+      return "Please enter a valid math expression!";
     }
 
-    // Calculate safely
-    let result = Function('"use strict";return (' + cleaned + ')')();
+    // Calculate
+    let result = eval(cleaned);
+
+    // Check if result is valid number
+    if (isNaN(result)) {
+      return "Invalid calculation!";
+    }
 
     return result;
 
   } catch (error) {
-    return "Sorry, I couldn't calculate that.";
+    return "Error in calculation!";
   }
 }
