@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Web App</title>
+  <title>Doubt Solver AI</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Hello 🚀 My Web App is Live!</h1>
-<button onclick="showMsg()">Click Me</button>
+<div class="container">
+  <h1>🤖 Doubt Solver AI</h1>
+  <p>Ask your question below</p>
+
+  <input type="text" id="question" placeholder="Type your doubt...">
+  <button onclick="solveDoubt()">Get Answer</button>
+
+  <div id="answerBox"></div>
+</div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
