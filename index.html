@@ -8,12 +8,16 @@
 
 <div class="container">
   <h1>🤖 Doubt Solver AI</h1>
-  <p>Ask your question below</p>
 
-  <input type="text" id="question" placeholder="Type your doubt...">
-  <button onclick="solveDoubt()">Get Answer</button>
+  <button onclick="toggleTheme()" class="theme-btn">🌙 Toggle Theme</button>
+
+  <input type="text" id="question" placeholder="Ask your doubt...">
+  <button onclick="solveDoubt()">Ask</button>
 
   <div id="answerBox"></div>
+
+  <h2>📜 History</h2>
+  <ul id="historyList"></ul>
 </div>
 
 <script src="script.js"></script>
