@@ -12,7 +12,7 @@ function solveDoubt() {
     return;
   }
 
-  let answer = "🤖 AI Answer: " + question;
+  let answer = "🤖 AI Answer: " + reallogicanswer;
 
   document.getElementById("answerBox").innerText = answer;
 
