@@ -1,24 +1,21 @@
-// Load saved history
-window.onload = function () {
-  document.body.classList.add("light");
+document.addEventListener("DOMContentLoaded", function () {
 
-  let history = JSON.parse(localStorage.getItem("history")) || [];
-  history.forEach(item => addToHistory(item));
-};
+  loadHistory();
+
+});
 
 function solveDoubt() {
   let question = document.getElementById("question").value;
 
-  if (question === "") {
+  if (!question) {
     document.getElementById("answerBox").innerText = "Enter a question!";
     return;
   }
 
-  let answer = "🤖 AI Answer: This is a response for: " + question;
+  let answer = "🤖 AI Answer: " + question;
 
   document.getElementById("answerBox").innerText = answer;
 
-  // Save to history
   let history = JSON.parse(localStorage.getItem("history")) || [];
   history.push(question);
   localStorage.setItem("history", JSON.stringify(history));
@@ -32,13 +29,19 @@ function addToHistory(question) {
   document.getElementById("historyList").appendChild(li);
 }
 
-// Dark / Light Theme Toggle
+function loadHistory() {
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+  history.forEach(q => addToHistory(q));
+}
+
 function toggleTheme() {
-  if (document.body.classList.contains("dark")) {
-    document.body.classList.remove("dark");
-    document.body.classList.add("light");
+  let body = document.body;
+
+  if (body.classList.contains("dark")) {
+    body.classList.remove("dark");
+    body.classList.add("light");
   } else {
-    document.body.classList.remove("light");
-    document.body.classList.add("dark");
+    body.classList.remove("light");
+    body.classList.add("dark");
   }
 }
